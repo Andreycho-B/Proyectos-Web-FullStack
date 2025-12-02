@@ -1,0 +1,129 @@
+/* --- Reset y Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #eef2f5;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centramos todo en pantalla */
+}
+
+/* --- Contenedor Principal (Contexto de Posicionamiento) --- */
+.datepicker-container {
+    position: relative; /* CRUCIAL: Esto define el límite para el 'absolute' hijo */
+    width: 300px;
+}
+
+/* --- Grupo Input + Botón --- */
+.input-group {
+    display: flex;
+    border: 2px solid #333; /* Borde grueso estilo mockup */
+    border-radius: 4px;
+    background: white;
+    overflow: hidden;
+}
+
+.date-input {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    outline: none;
+    color: #333;
+}
+
+.calendar-btn {
+    background: white;
+    border: none;
+    border-left: 2px solid #333; /* Separador */
+    padding: 0 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+
+.calendar-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* --- Panel del Calendario (El "Popup") --- */
+.calendar-panel {
+    position: absolute; /* Se sale del flujo normal  */
+    top: 110%; /* Lo empuja un poquito más abajo del input */
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 2px solid #333;
+    border-radius: 4px;
+    padding: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    
+    /* Pequeño triangulo decorativo (opcional pero elegante) */
+    z-index: 10;
+}
+
+/* --- Cabecera del Calendario --- */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.month-year {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.nav-arrow {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+/* --- Grillas (Días de la semana y Fechas) --- */
+.calendar-grid-header, .calendar-grid-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columnas iguales */
+    text-align: center;
+}
+
+.calendar-grid-header span {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.calendar-grid-days span {
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Efecto hover en los días (excepto los vacíos) */
+.calendar-grid-days span:not(.empty):hover {
+    background-color: #333;
+    color: white;
+}
+
+/* Día seleccionado (simulado para estilo) */
+.calendar-grid-days span:nth-child(20) { /* Selecciona el día 15 */
+    border: 2px solid #333;
+    font-weight: bold;
+}
