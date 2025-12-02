@@ -1,0 +1,81 @@
+/* --- Reset Básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* --- GRID SYSTEM [cite: 173] --- */
+.gallery {
+    display: grid;
+    gap: 15px; /* Espacio entre fotos [cite: 177] */
+    
+    /* Configuración por defecto (Mobile First): 1 sola columna */
+    grid-template-columns: 1fr;
+    grid-auto-rows: 250px; /* Altura base de cada fila */
+}
+
+/* --- Estilos de las imágenes --- */
+.gallery-item {
+    border-radius: 10px;
+    overflow: hidden; /* Para que la imagen respete el borde redondeado */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02); /* Efecto zoom suave */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Clave: La imagen llena el espacio sin deformarse */
+    display: block;
+}
+
+/* --- RESPONSIVE DESIGN [cite: 175-176] --- */
+
+/* Tablet (más de 600px): 2 Columnas */
+@media (min-width: 600px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas iguales */
+    }
+}
+
+/* Desktop (más de 900px): 3 Columnas (Como el mockup) */
+@media (min-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+        grid-auto-rows: 250px; /* Forzamos altura base */
+    }
+
+    /* Clase especial para elementos altos (ocupan 2 filas) */
+    .tall {
+        grid-row: span 2;
+    }
+    
+    /* Reordenamiento específico para que coincida con el mockup del PDF */
+    /* La Puerta Roja (item 5) debe empezar en la segunda fila, columna del medio */
+    .gallery-item:nth-child(5) {
+        grid-column: 2;
+        grid-row: 2 / span 2;
+    }
+
+    /* El Living Room (item 4) debe ir abajo a la izquierda */
+    .gallery-item:nth-child(4) {
+        grid-column: 1;
+        grid-row: 3;
+    }
+}
