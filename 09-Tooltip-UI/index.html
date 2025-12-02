@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Tooltip UI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="container">
+        
+        <nav class="navbar">
+            <ul class="menu">
+                <li class="menu-item"><a href="#">Home</a></li>
+                
+                <li class="menu-item tooltip-container">
+                    <a href="#" class="active">Projects</a>
+                    
+                    <div class="tooltip">
+                        Here is everything I have built
+                    </div>
+                </li>
+                
+                <li class="menu-item"><a href="#">Blog</a></li>
+                <li class="menu-item"><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p style="margin-top: 50px; color: #666;">Pasa el mouse sobre "Projects" para ver el efecto.</p>
+
+    </main>
+
+</body>
+</html>

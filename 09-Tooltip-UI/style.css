@@ -1,0 +1,90 @@
+/* --- Reset y Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e0e7ff; /* Un azul muy suave de fondo */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Navegación --- */
+.navbar {
+    background-color: white;
+    padding: 15px 40px;
+    border-radius: 50px; /* Bordes muy redondos (Pill shape) */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.menu-item {
+    position: relative; /* CRUCIAL: Para que el tooltip se posicione respecto a esto */
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.menu-item a:hover, .menu-item a.active {
+    color: #4f46e5; /* Color índigo */
+}
+
+/* --- ESTILOS DEL TOOLTIP --- */
+.tooltip {
+    /* Posicionamiento */
+    position: absolute;
+    bottom: 150%; /* Lo empuja hacia arriba del texto */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* Centrado horizontal + Offset inicial para animación */
+    
+    /* Diseño Visual */
+    background-color: #1f2937; /* Gris muy oscuro */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap; /* Evita que el texto se parta en líneas */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    /* Estado Inicial (Oculto) */
+    opacity: 0;
+    visibility: hidden;
+    
+    /* Animación Suave [cite: 38] */
+    transition: all 0.3s ease-in-out;
+}
+
+/* El triangulito (flecha) abajo del tooltip */
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* Justo debajo del tooltip */
+    left: 50%;
+    margin-left: -5px; /* Centrar la flecha (mitad de su ancho) */
+    border-width: 5px;
+    border-style: solid;
+    /* Color: Arriba oscuro, lados transparentes */
+    border-color: #1f2937 transparent transparent transparent;
+}
+
+/* --- INTERACCIÓN (HOVER) --- */
+.tooltip-container:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* Sube suavemente a su posición final */
+}
