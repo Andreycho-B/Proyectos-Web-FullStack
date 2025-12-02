@@ -1,0 +1,221 @@
+/* --- Reset y Base --- */
+:root {
+    --text-color: #1a202c;
+    --border-color: #cbd5e0;
+    --focus-color: #3182ce;
+    --error-color: #e53e3e;
+    --success-color: #38a169;
+    --bg-color: #f7fafc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- Contenedor Principal (Tarjeta) --- */
+.container {
+    width: 100%;
+    max-width: 900px;
+}
+
+.card-layout {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column; /* Mobile First: Columna */
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+/* --- Accesibilidad: Focus State Visible [cite: 55] --- */
+input:focus, button:focus {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 2px;
+}
+
+/* --- Columna Izquierda: Formulario --- */
+.form-section {
+    padding: 40px;
+    flex: 1.5; /* Ocupa más espacio */
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: border-color 0.2s;
+}
+
+/* Estilos de Error [cite: 56-57] */
+.error-state input {
+    border-color: var(--error-color);
+    background-color: #fff5f5;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    margin-top: 6px;
+    display: block;
+}
+
+/* Input Wrapper para icono de ojo */
+.input-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #718096;
+    display: flex;
+    align-items: center;
+    padding: 2px; /* Espacio para el focus ring */
+}
+
+.btn-submit {
+    background-color: #000;
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #333;
+}
+
+/* --- Columna Derecha: Sidebar --- */
+.progress-section {
+    background-color: #f8f9fa; /* Gris claro como el mockup */
+    padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 1px solid #e2e8f0;
+}
+
+.chart-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.chart-container h2 {
+    font-size: 1.1rem;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+/* Gráfico de Dona con CSS puro */
+.donut-chart {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /* Truco para el gráfico: Conic Gradient */
+    background: conic-gradient(
+        #1a202c 0% 65%,  /* Negro hasta el 65% */
+        #cbd5e0 65% 100% /* Gris el resto */
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* El hueco blanco del centro */
+.donut-chart::before {
+    content: '';
+    position: absolute;
+    width: 100px; /* Un poco más pequeño que el padre */
+    height: 100px;
+    background-color: #f8f9fa; /* Mismo color que el fondo */
+    border-radius: 50%;
+}
+
+.percentage {
+    position: relative; /* Para estar encima del hueco */
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* --- Checklist --- */
+.checklist {
+    list-style: none;
+    width: 100%;
+}
+
+.checklist li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+/* Items completados */
+.completed {
+    color: #a0aec0; /* Texto gris claro */
+}
+
+.completed del {
+    text-decoration: line-through;
+}
+
+.bullet {
+    width: 8px;
+    height: 8px;
+    background-color: #cbd5e0;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* --- Desktop Layout --- */
+@media (min-width: 768px) {
+    .card-layout {
+        flex-direction: row; /* Poner en 2 columnas */
+    }
+    
+    .btn-submit {
+        width: auto; /* Botón tamaño natural */
+    }
+}

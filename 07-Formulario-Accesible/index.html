@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario Accesible</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="container">
+        <div class="card-layout">
+            
+            <form class="form-section" action="#" novalidate>
+                
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="What should we call you?">
+                </div>
+
+                <div class="form-group error-state">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="john@doe.com" aria-invalid="true" aria-describedby="email-error">
+                    <span id="email-error" class="error-message">Email is already taken</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Enter Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" name="password" placeholder="••••••••">
+                        <button type="button" class="toggle-password" aria-label="Mostrar contraseña">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••">
+                        <button type="button" class="toggle-password" aria-label="Mostrar contraseña">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Update Profile</button>
+            </form>
+
+            <aside class="progress-section">
+                
+                <div class="chart-container">
+                    <div class="donut-chart" role="img" aria-label="Progreso al 65%">
+                        <span class="percentage">65%</span>
+                    </div>
+                    <h2>Profile Completeness</h2>
+                </div>
+
+                <ul class="checklist">
+                    <li class="completed">
+                        <span aria-hidden="true">✓</span> <del>Create Account</del>
+                    </li>
+                    <li class="completed">
+                        <span aria-hidden="true">✓</span> <del>Update Roadmap Progress</del>
+                    </li>
+                    <li class="completed">
+                        <span aria-hidden="true">✓</span> <del>Setup Public Profile</del>
+                    </li>
+                    
+                    <li>
+                        <span class="bullet"></span> Complete your first project
+                    </li>
+                    <li>
+                        <span class="bullet"></span> Invite your Friends
+                    </li>
+                </ul>
+            </aside>
+
+        </div>
+    </main>
+
+</body>
+</html>
