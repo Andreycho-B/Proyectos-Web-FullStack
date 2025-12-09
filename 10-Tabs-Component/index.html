@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs Component con JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        
+        <h1 style="text-align: center; margin-bottom: 20px;">Project 10: Tabs</h1>
+
+        <div class="tabs-container">
+            
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="tab1">First Tab</button>
+                <button class="tab-btn" data-tab="tab2">Second Tab</button>
+                <button class="tab-btn" data-tab="tab3">Third Tab</button>
+                <button class="tab-btn" data-tab="tab4">Fourth Tab</button>
+            </div>
+
+            <div class="tabs-content">
+                
+                <div id="tab1" class="content active">
+                    <h2>Content for First Tab</h2>
+                    <p>Este es el contenido inicial visible. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div id="tab2" class="content">
+                    <h2>Content for Second Tab</h2>
+                    <p>Aquí está la información de la segunda pestaña. JavaScript se encargó de mostrarme.</p>
+                </div>
+
+                <div id="tab3" class="content">
+                    <h2>Content for Third Tab</h2>
+                    <p>Contenido de la tercera sección. Practicando manipulación del DOM.</p>
+                </div>
+
+                <div id="tab4" class="content">
+                    <h2>Content for Fourth Tab</h2>
+                    <p>Última pestaña. ¡El sistema de pestañas funciona correctamente!</p>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
