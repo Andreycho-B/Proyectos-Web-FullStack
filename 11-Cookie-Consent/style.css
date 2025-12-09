@@ -1,0 +1,106 @@
+/* --- Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    height: 100vh;
+    overflow: hidden; /* Para este demo */
+}
+
+/* --- Fondo Simulado (Skeleton) --- */
+.fake-website {
+    padding: 20px;
+    opacity: 0.5; /* Lo hacemos sutil para resaltar el popup */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skeleton-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.skeleton-logo { width: 40px; height: 40px; background: #d1d5db; border-radius: 8px; }
+.skeleton-nav { width: 150px; height: 20px; background: #d1d5db; border-radius: 4px; align-self: center; }
+.skeleton-hero { width: 100%; height: 200px; background: #e5e7eb; border-radius: 12px; margin-bottom: 20px; }
+.line { width: 100%; height: 15px; background: #e5e7eb; margin-bottom: 10px; border-radius: 4px; }
+.line.short { width: 60%; }
+.skeleton-grid { display: flex; gap: 20px; margin-top: 20px; }
+.box { flex: 1; height: 100px; background: #e5e7eb; border-radius: 8px; }
+
+/* --- TARJETA DE COOKIES [cite: 288-304] --- */
+.cookie-card {
+    position: fixed; /* Fijo en la pantalla */
+    bottom: -100%; /* Oculto abajo inicialmente */
+    right: 30px;
+    width: 320px;
+    background-color: #000; /* Fondo negro */
+    color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: bottom 0.5s cubic-bezier(0.19, 1, 0.22, 1); /* Animación suave */
+    z-index: 1000;
+}
+
+/* Clase para mostrar el popup */
+.cookie-card.show {
+    bottom: 30px; /* Sube a la vista */
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.close-btn:hover { color: #fff; }
+
+.cookie-icon {
+    font-size: 2.5rem;
+}
+
+.cookie-body p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #eee;
+}
+
+.accept-btn {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.accept-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Media Query para móviles */
+@media (max-width: 500px) {
+    .cookie-card {
+        right: 20px;
+        left: 20px;
+        width: auto; /* Ancho automático en celular */
+    }
+}
